@@ -2,7 +2,7 @@ import os
 
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 import chardet
@@ -45,8 +45,9 @@ if not os.path.exists(persistent_directory):
     # Create embeddings
     print("\n--- Creating embeddings ---")
     
-    # Load the Hugging Face model
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    # Define the Hugging Face Embeddings
+    model_name = "BAAI/bge-small-en"
+    embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
     print("\n--- Finished creating embeddings ---")
 
