@@ -1,6 +1,6 @@
 # LangChain Demo
 
-Welcome to the LangChain Demo repository! This repo contains all the code examples you'll need to follow along with the LangChain Master Class for Beginners video. By the end of this course, you'll know how to use LangChain to create your own AI agents, build RAG chatbots, and automate tasks with AI.
+Welcome to the LangChain Demo repository! This repo has been forked from https://github.com/bhancockio/langchain-crash-course. This repo contains all the code examples you'll need to follow along with the LangChain Master Class for Beginners video [video-link](https://www.youtube.com/watch?v=yF9kGESAi3M). By the end of this course, you'll know how to use LangChain to create your own AI agents, build RAG chatbots, and automate tasks with AI.
 
 ## Course Outline
 
