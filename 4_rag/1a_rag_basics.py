@@ -3,7 +3,11 @@ import os
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
+import chardet
+
+
 
 # Define the directory containing the text file and the persistent directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,8 +24,13 @@ if not os.path.exists(persistent_directory):
             f"The file {file_path} does not exist. Please check the path."
         )
 
+    # Detect the encoding of the file
+    with open(file_path, "rb") as file:
+        result = chardet.detect(file.read())
+        detected_encoding = result['encoding']
+
     # Read the text content from the file
-    loader = TextLoader(file_path)
+    loader = TextLoader(file_path, encoding=detected_encoding)
     documents = loader.load()
 
     # Split the document into chunks
@@ -35,9 +44,10 @@ if not os.path.exists(persistent_directory):
 
     # Create embeddings
     print("\n--- Creating embeddings ---")
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small"
-    )  # Update to a valid embedding model if needed
+    
+    # Load the Hugging Face model
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
     print("\n--- Finished creating embeddings ---")
 
     # Create the vector store and persist it automatically
