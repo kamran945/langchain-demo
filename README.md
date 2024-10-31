@@ -1,6 +1,6 @@
-# LangChain Crash Course
+# LangChain Demo
 
-Welcome to the LangChain Crash Course repository! This repo contains all the code examples you'll need to follow along with the LangChain Master Class for Beginners video. By the end of this course, you'll know how to use LangChain to create your own AI agents, build RAG chatbots, and automate tasks with AI.
+Welcome to the LangChain Demo repository! This repo contains all the code examples you'll need to follow along with the LangChain Master Class for Beginners video. By the end of this course, you'll know how to use LangChain to create your own AI agents, build RAG chatbots, and automate tasks with AI.
 
 ## Course Outline
 
@@ -24,8 +24,8 @@ Welcome to the LangChain Crash Course repository! This repo contains all the cod
 
    ```bash
    <!-- TODO: UPDATE TO MY  -->
-   git clone https://github.com/bhancockio/langchain-crash-course
-   cd langchain-crash-course
+   git clone https://github.com/bhancockio/langchain-demo
+   cd langchain-demo
    ```
 
 2. Install dependencies using Poetry:
