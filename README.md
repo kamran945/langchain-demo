@@ -62,9 +62,7 @@ Here's a breakdown of the folders and what you'll find in each:
 
 - `1_chat_model_basic.py`
 - `2_chat_model_basic_conversation.py`
-- `3_chat_model_alternatives.py`
-- `4_chat_model_conversation_with_user.py`
-- `5_chat_model_save_message_history_firestore.py`
+- `3_chat_model_conversation_with_user.py`
 
 Learn how to interact with models like ChatGPT, Claude, and Gemini.
 
