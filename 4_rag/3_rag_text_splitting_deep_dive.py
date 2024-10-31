@@ -9,7 +9,9 @@ from langchain.text_splitter import (
 )
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
+import chardet
 
 # Define the directory containing the text file
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -23,13 +25,18 @@ if not os.path.exists(file_path):
     )
 
 # Read the text content from the file
-loader = TextLoader(file_path)
+
+# Detect the encoding of the file
+with open(file_path, "rb") as file:
+    result = chardet.detect(file.read())
+    detected_encoding = result['encoding']
+loader = TextLoader(file_path, encoding=detected_encoding)
 documents = loader.load()
 
 # Define the embedding model
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small"
-)  # Update to a valid embedding model if needed
+# Define the Hugging Face Embeddings
+model_name = "BAAI/bge-small-en"
+embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
 
 # Function to create and persist vector store
