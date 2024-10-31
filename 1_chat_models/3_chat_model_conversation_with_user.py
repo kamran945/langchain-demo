@@ -1,12 +1,13 @@
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain_groq.chat_models import ChatGroq
 
 # Load environment variables from .env
 load_dotenv()
 
-# Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+# Create a model
+model = ChatGroq(model="llama-3.1-70b-versatile",
+                      stop_sequences="[end]")
 
 
 chat_history = []  # Use a list to store messages
