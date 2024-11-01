@@ -20,6 +20,7 @@ langchain-community = "^0.3.4"
 chardet = "^5.2.0"
 langchain-huggingface = "^0.1.1"
 langchain-chroma = "^0.1.4"
+langchain-openai = "^0.2.5"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md
