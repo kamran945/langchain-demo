@@ -5,7 +5,7 @@ from langchain.agents import (
     create_react_agent,
 )
 from langchain_core.tools import Tool
-from langchain_openai import ChatOpenAI
+from langchain_groq.chat_models import ChatGroq
 
 # Load environment variables from .env file
 load_dotenv()
@@ -35,10 +35,9 @@ tools = [
 # https://smith.langchain.com/hub/hwchase17/react
 prompt = hub.pull("hwchase17/react")
 
-# Initialize a ChatOpenAI model
-llm = ChatOpenAI(
-    model="gpt-4o", temperature=0
-)
+# Create a model
+llm = ChatGroq(model="llama-3.1-70b-versatile",
+                      stop_sequences="[end]")
 
 # Create the ReAct agent using the create_react_agent function
 agent = create_react_agent(
